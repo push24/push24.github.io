@@ -20,7 +20,7 @@
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    window.alert("registeing");
+    
     navigator.serviceWorker.register('/sw.js');
     console.log("registered");
   });
