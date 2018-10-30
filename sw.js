@@ -5,7 +5,9 @@ var CURRENT_CACHES = {
 
 self.addEventListener('install', function(event) {
   var urlsToPrefetch = [
-    './'
+    './',
+    '../small.mp4',
+    '../small.webm'
   ];
 
   // All of these logging statements should be visible via the "Inspect" interface
