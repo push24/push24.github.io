@@ -4,7 +4,9 @@ var CURRENT_CACHES = {
 };
 
 self.addEventListener('install', function(event) {
-  
+  var urlsToPrefetch = [
+    './'
+  ];
 
   // All of these logging statements should be visible via the "Inspect" interface
   // for the relevant SW accessed via chrome://serviceworker-internals
@@ -14,7 +16,7 @@ self.addEventListener('install', function(event) {
 
   event.waitUntil(
     caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
-     console.log('cache create');
+      return cache.addAll(urlsToPrefetch);
     })
   );
 });
