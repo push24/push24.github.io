@@ -8,11 +8,15 @@ self.addEventListener('install', function(event) {
 
   // All of these logging statements should be visible via the "Inspect" interface
   // for the relevant SW accessed via chrome://serviceworker-internals
-  console.log('Handling install event. Resources to prefetch:');
+  console.log('Handling install event. Resources to prefetch:', urlsToPrefetch);
 
   self.skipWaiting();
 
- 
+  event.waitUntil(
+    caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
+     console.log('cache create');
+    })
+  );
 });
 
 self.addEventListener('activate', function(event) {
