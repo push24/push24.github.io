@@ -6,9 +6,9 @@ var CURRENT_CACHES = {
 self.addEventListener('install', function(event) {
   var urlsToPrefetch = [
     './',
-    '../small.mp4',
-    '../small.webm'
+   
   ];
+
 
   // All of these logging statements should be visible via the "Inspect" interface
   // for the relevant SW accessed via chrome://serviceworker-internals
@@ -93,6 +93,17 @@ self.addEventListener('fetch', function(event) {
       // have to hardcode 'no-cors' like we do when fetch()ing in the install handler.
       return fetch(event.request).then(function(response) {
         console.log('Response from network is:', response);
+      console.log(event.request.url);
+      if(event.request.url == 'https://push24.github.io/pages/a.html')
+      {
+        caches.open(CURRENT_CACHES.prefetch)
+                .then(cache =>
+                 {  console.log('add new page to cache');
+                    cache.add('https://push24.github.io/small.mp4');
+                  
+                });
+        
+      }
         return caches.open(CURRENT_CACHES.prefetch)
                 .then(cache =>
                  {  console.log('add new page to cache');
