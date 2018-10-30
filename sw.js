@@ -91,8 +91,13 @@ self.addEventListener('fetch', function(event) {
       // have to hardcode 'no-cors' like we do when fetch()ing in the install handler.
       return fetch(event.request).then(function(response) {
         console.log('Response from network is:', response);
-
-        return response;
+        return caches.open(CURRENT_CACHES.prefetch)
+                .then(cache =>
+                 {  console.log('add new page to cache');
+                    cache.put(event.request.url ,response.clone());
+                    return response;
+                });
+   
       }).catch(function(error) {
         // This catch() will handle exceptions thrown from the fetch() operation.
         // Note that a HTTP error response (e.g. 404) will NOT trigger an exception.
@@ -100,7 +105,7 @@ self.addEventListener('fetch', function(event) {
         console.error('Fetching failed:', error);
 
         throw error;
-      });
+      }); 
     })
     );
   }
