@@ -5,7 +5,7 @@ var CURRENT_CACHES = {
 
 self.addEventListener('install', function(event) {
   var urlsToPrefetch = [
-    './',
+    './'
    
   ];
 
