@@ -1,6 +1,5 @@
 
 
-worker.onmessage = function(event){
                                     
                                     var j, a= event.data, i =1;
 									
@@ -11,4 +10,3 @@ worker.onmessage = function(event){
 										}
 										postMessage(j);     
 									
-                                  };
