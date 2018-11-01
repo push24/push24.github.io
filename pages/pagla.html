@@ -5,6 +5,7 @@
 
     <body onload="bigloop()" style="background-color:grey">
 
+        <button onclick="stop()">stop</button>
                
            
                 <script>
@@ -24,14 +25,15 @@
 									
                                 worker.onmessage = function(event){
                                                                     alert("completed " + event.data + " iteration");
-                                                                      worker.terminate();
+                                                                     
                                                                  };
                              
                             }
 
-                            function small()
+                            function stop()
                             {
                                 alert("hey i'm small fn");
+                                worker.terminate();
                             }
                 
                 
