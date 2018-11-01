@@ -1,7 +1,7 @@
 
 
                                     
-                                    var j, a= event.data, i =1;
+                                    var j,  i =1;
 									
 										while(i<= 100000000000)
 										{
