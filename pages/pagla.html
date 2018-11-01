@@ -1,0 +1,49 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+
+               
+            <button onclick="bigloop()"> Big Loop</button>
+            <button onclick="bigloop()"> Big Loop2</button>
+                <br>
+                <button onclick="small()"> small</button>
+
+                <script>
+                        self.addEventListener('load', function()
+                            {
+                                // var j, i =1;
+                                // while(i<= 1000000000)
+                                // {
+                                //     j=i;
+                                //     i++;
+                                // }
+                                // alert("number is" + j);
+
+                                var worker = new Worker("bigloop.js");
+								
+									
+                                worker.onmessage = function(event){
+                                                                    alert("completed " + event.data + " iteration");
+                                                                      worker.terminate();
+                                                                 };
+                             
+                            }
+
+                 )
+                           
+                            function small()
+                            {
+                                alert("hey i'm small fn");
+                            }
+                
+                
+                </script>
+
+
+
+    </body>
+
+</html>
