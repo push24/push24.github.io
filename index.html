@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="/aaaa.appcache">
   <head>
       <script src="https://apis.google.com/js/platform.js" async defer></script>
       <meta name="google-signin-client_id" content="201218522836-7bopjdtmrumcbi35vav8a6td0uknqfta.apps.googleusercontent.com">
@@ -22,6 +22,8 @@
  <a href="/pages/pagla.html"><button>enter</button></a>
 
  <br>
+
+ <a href="/main/index.html"> index</a>
  <!-- <a href="#" onclick="signOut();">Sign out</a> -->
 <script>
 
@@ -38,9 +40,6 @@ if ('serviceWorker' in navigator) {
 if ('caches' in window) {
   alert('YES ALSO IN IOS');
 }
-  else{
-  alert("nooo");
-  }
 
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
