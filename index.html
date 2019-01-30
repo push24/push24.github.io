@@ -25,10 +25,20 @@
 
  <a href="/main/index.html"> index</a>
  <!-- <a href="#" onclick="signOut();">Sign out</a> -->
+  
+  <br><br>
+  
+  <button onclick="myFunction()">Click me</button>
 <script>
 
 
-
+function myFunction() {
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+	alert("Mobile");
+} else {
+	alert("desktop");
+}
+}
 
 
 
