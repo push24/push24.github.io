@@ -82,7 +82,8 @@ var pass = document.getElementById("pass").value;
   if(id !="" && pass !=""){
     var dimensionValue = id;
 ga('set', 'dimension1', dimensionValue);
-    window.location =window.location.href +"/page1"
+console.log(window.location.href +"pages/page1");
+    window.location =window.location.href +"pages/page1";
   }
 }
 
